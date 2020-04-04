@@ -1,0 +1,172 @@
+
+
+.box {
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  box-shadow: 10px 22px 34px 0 rgba(0, 0, 0, 0.5);
+  margin: 20px auto;
+  overflow: hidden;
+  width: 550px;
+}
+.counter {
+  display: flex;
+  justify-content: space-between;
+  max-width: 160px;
+  width: 100%;
+}
+output {
+  background: #dde3e9;
+  border: 1px solid #2f3676;
+  border-radius: 4px;
+  text-align: center;
+  width: 60px;
+  left: 10.04%;
+  right: 85.77%;
+  top: 50.88%;
+  bottom: 45.02%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20.01px;
+  line-height: 37px;
+  height: 42px;
+}
+
+.space {
+  margin-bottom: 16px;
+}
+
+.space-md {
+  margin-bottom: 32px;
+}
+
+legend {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+button {
+  border: 0;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+input + label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 30px;
+}
+
+input[type="checkbox"] + label::before {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 24px;
+  left: 0;
+  bottom: 0;
+  border-radius: 2px;
+  background: #2f3676;
+  vertical-align: bottom;
+}
+
+input[type="checkbox"]:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  bottom: 8px;
+  width: 3px;
+  height: 7px;
+  border-right: solid 3px white;
+  border-bottom: solid 3px white;
+  transform: rotate(44deg);
+}
+
+.header {
+  background: url("images/header.png");
+  background-size: cover;
+  height: 187px;
+  padding: 23px 36px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-family: Inter;
+  position: absolute;
+  height: 99px;
+  color: #fff;
+  font-size: 23px;
+  font-weight: 300;
+  line-height: 38px;
+}
+
+.header h1 span {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 1.46;
+}
+
+form textarea {
+  background: #dde3e9;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 24px;
+  background: #dde3e9;
+  border: 1px solid #2f3676;
+  border-radius: 8px;
+  color: #071723;
+  height: 140px;
+  padding: 16px;
+  resize: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+fieldset {
+  padding: 0 32px 32px 32px;
+  border: unset;
+}
+
+.counter svg {
+  fill: #2f3676;
+}
+
+.counter input {
+  background: #dde3e9;
+  border: 1px solid #2f3676;
+  border-radius: 7px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 8px;
+  width: 60px;
+}
+
+footer {
+  padding: 32px;
+  background: #dde3e9;
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer button {
+  appearance: none;
+  background: #2f3676;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 8px 32px;
+}
+
+footer button:focus,
+footer button:hover {
+  border: 2px solid #2f3676;
+  background: #191847;
+}
