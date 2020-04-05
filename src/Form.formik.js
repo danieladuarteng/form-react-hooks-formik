@@ -1,9 +1,27 @@
 import * as yup from "yup";
 
 export const formSchema = yup.object().shape({
-  react: yup.boolean(),
-  vue: yup.boolean(),
-  angular: yup.boolean(),
+
+  stickers: yup.object({
+    react: yup.boolean(),
+    vue: yup.boolean(),
+    angular: yup.boolean(),
+  })
+  .test(
+    'myCustomTest',
+    null,
+    (obj) => {
+      if ( obj.react || obj.vue || obj.angular ) {
+        return true;
+      }
+      return new yup.ValidationError(
+        'Please check at least one checkbox',
+        null,
+        'stickers'
+      );
+    }
+  ),
+
   count: yup.number()
   .integer()
   .positive(),
@@ -11,25 +29,23 @@ export const formSchema = yup.object().shape({
 });
 
 const initialData = {
-  react: false,
-  vue: false,
-  angular: false,
+  stickers: {
+    react: false,
+    vue: false,
+    angular: false,
+  },
   count: 0,
   description: ''
 };
 
 const mapDataToValues = data => ({
-  react: data.react,
-  vue: data.vue,
-  angular: data.angular,
+  stickers: data.stickers,
   count: data.count,
   description: data.description
 });
 
 const mapValuesToData = values => ({
-  react: values.react,
-  vue: values.vue,
-  angular: values.angular,
+  stickers: values.stickers,
   count: values.count,
   description: values.description
 });
@@ -41,7 +57,8 @@ export const formik = {
     const callback = () => {
       bag.setSubmitting(false);
     };
-    bag.props.handleSubmit(mapValuesToData(values), callback);
+    const data = mapValuesToData(values);
+    bag.props.handleSubmit(data, callback);
   },
   enableReinitialize: true,
   mapPropsToValues: props => {
