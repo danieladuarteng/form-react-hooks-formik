@@ -4,7 +4,7 @@ import Form from './Form';
 function App (props) {
   const [callback, setCallback] = useState(false);
 
-  const handleSubmit = (data, callback) => {
+  const handleSubmit = (data) => {
     setCallback(true)
   }
 

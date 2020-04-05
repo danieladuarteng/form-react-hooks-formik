@@ -1,7 +1,6 @@
 import * as yup from "yup";
 
 export const formSchema = yup.object().shape({
-
   stickers: yup.object({
     react: yup.boolean(),
     vue: yup.boolean(),
@@ -53,12 +52,8 @@ const mapValuesToData = values => ({
 export const formik = {
   displayName: "App",
   handleSubmit: (values, bag) => {
-    console.log('cheguei', values, bag)
-    const callback = () => {
-      bag.setSubmitting(false);
-    };
     const data = mapValuesToData(values);
-    bag.props.handleSubmit(data, callback);
+    bag.props.handleSubmit(data);
   },
   enableReinitialize: true,
   mapPropsToValues: props => {

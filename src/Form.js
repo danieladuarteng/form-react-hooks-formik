@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { withFormik } from "formik";
-import "./Form.css";
 import { formik } from './Form.formik';
+import "./Form.css";
 
 function Form(props) {
   const [count, setCount] = useState(0);
@@ -148,7 +148,7 @@ function Form(props) {
         </fieldset>
 
         <footer className={callback ? "footerWithCallback" : "footerWithoutCallback"}>
-          {callback && <p>Formulário enviado com sucesso</p>}
+          {callback && Object.keys(errors).length === 0 && (<p>Formulário enviado com sucesso</p>)}
           <button disabled={enableSendButton()}>Enviar</button>
         </footer>
       </div>
