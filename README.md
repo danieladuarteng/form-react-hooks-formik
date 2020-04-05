@@ -12,6 +12,8 @@ Open the terminal of your preference and input the commands:
 
 `git clone https://github.com/danieladuarteng/form-react-hooks-formik.git`
 
+`cd form-react-hooks-formik`
+
 `npm install`
 
 ## Run:
