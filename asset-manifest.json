@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/form-react-hooks-formik/static/css/main.57f917ac.chunk.css",
+    "main.js": "/form-react-hooks-formik/static/js/main.c9d7eae7.chunk.js",
+    "main.js.map": "/form-react-hooks-formik/static/js/main.c9d7eae7.chunk.js.map",
+    "runtime-main.js": "/form-react-hooks-formik/static/js/runtime-main.fc6188eb.js",
+    "runtime-main.js.map": "/form-react-hooks-formik/static/js/runtime-main.fc6188eb.js.map",
+    "static/js/2.8ca9c2f9.chunk.js": "/form-react-hooks-formik/static/js/2.8ca9c2f9.chunk.js",
+    "static/js/2.8ca9c2f9.chunk.js.map": "/form-react-hooks-formik/static/js/2.8ca9c2f9.chunk.js.map",
+    "index.html": "/form-react-hooks-formik/index.html",
+    "precache-manifest.5ebf13d4fdbb5e1afa956b6d2076e075.js": "/form-react-hooks-formik/precache-manifest.5ebf13d4fdbb5e1afa956b6d2076e075.js",
+    "service-worker.js": "/form-react-hooks-formik/service-worker.js",
+    "static/css/main.57f917ac.chunk.css.map": "/form-react-hooks-formik/static/css/main.57f917ac.chunk.css.map",
+    "static/js/2.8ca9c2f9.chunk.js.LICENSE.txt": "/form-react-hooks-formik/static/js/2.8ca9c2f9.chunk.js.LICENSE.txt",
+    "static/media/Form.css": "/form-react-hooks-formik/static/media/header.594ee45c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fc6188eb.js",
+    "static/js/2.8ca9c2f9.chunk.js",
+    "static/css/main.57f917ac.chunk.css",
+    "static/js/main.c9d7eae7.chunk.js"
+  ]
+}
