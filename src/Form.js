@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-import { withFormik } from "formik";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { withFormik } from 'formik';
 import { formik } from './Form.formik';
-import "./Form.css";
+import Header from './Header';
+import Inputs from './Inputs';
+import Footer from './Footer';
+import './Form.css';
 
 function Form(props) {
   const [count, setCount] = useState(0);
@@ -28,7 +32,7 @@ function Form(props) {
     return result;
   }
 
-  const enableStickerOptions = () =>{
+  const enableStickerOptions = () => {
     let result = true;
 
     if (react || angular || vue) result = false;
@@ -36,7 +40,7 @@ function Form(props) {
     return result;
   }
 
-  const enableStickersButton = () =>{
+  const enableStickersButton = () => {
     let result = false;
 
     if(count <= 0 ) result = true;
@@ -45,115 +49,73 @@ function Form(props) {
   }
 
   return (
-    <form autoComplete="off" noValidate
-      onSubmit={handleSubmit}>
-      <div className="box">
-        <div className="header">
-          <h1>
-            <p>Formulário</p>
-            <p>para compra de</p>
-            <span>Pacote de Stickers</span>
-          </h1>
-        </div>
+    <form
+      autoComplete='off'
+      noValidate
+      onSubmit={handleSubmit}
+    >
+      <Header
+        title='Formulário'
+        subTitle='para compra de'
+        interTitle='Pacote de Stickers'
+      />
 
-        <fieldset>
-          <legend>Quais stickers:</legend>
+      <Inputs
+        count={count}
+        react={react}
+        vue={vue}
+        angular={angular}
+        description={description}
+        handleChange={handleChange}
+        enableStickerOptions={enableStickerOptions()}
+        enableStickersButton={enableStickersButton()}
+        setCount={setCount}
+        setFieldValue={setFieldValue}
+      />
 
-            <input
-              id="react"
-              type="checkbox"
-              name="stickers.react"
-              aria-labelledby="label-react"
-              aria-describedby="Option react"
-              onChange={handleChange}
-              value={react}
-              required={enableStickerOptions()}
-            />
-            <label id="label-react"  htmlFor="react">
-              React
-            </label>
-
-          <div>
-            <input
-              id="vue"
-              type="checkbox"
-              name="stickers.vue"
-              aria-labelledby="label-vue"
-              aria-describedby="Option vue"
-              onChange={handleChange}
-              value={vue}
-              required={enableStickerOptions()}
-            />
-            <label id="label-vue" htmlFor="vue">
-              Vue
-            </label>
-          </div>
-          <div>
-            <input
-              id="angular"
-              type="checkbox"
-              name="stickers.angular"
-              aria-labelledby="label-angular"
-              aria-describedby="Option angular"
-              onChange={handleChange}
-              value={angular}
-              required={enableStickerOptions()}
-            />
-            <label id="label-angular " htmlFor="angular">
-              Angular
-            </label>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Quantos stickers de cada?</legend>
-          <div className="counter">
-            <button
-              disabled={enableStickersButton()}
-              onClick={e => {
-                e.preventDefault();
-                setCount(count - 1);
-                setFieldValue('count', count -1);
-              }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42">
-                <path d="M4.667 0A4.668 4.668 0 0 0 0 4.667v32.666A4.668 4.668 0 0 0 4.667 42h32.666A4.668 4.668 0 0 0 42 37.333V4.667A4.668 4.668 0 0 0 37.333 0H4.667zm28 23.333H9.333v-4.666h23.334v4.666z" />
-              </svg>
-            </button>
-
-            <output className={count === 0 ? "countInvalid": undefined} name="count">{count}</output>
-
-            <button
-              onClick={e => {
-                e.preventDefault();
-                setCount(count + 1);
-                setFieldValue('count', count +1);
-              }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42">
-                <path d="M4.667 42h32.666A4.668 4.668 0 0 0 42 37.333V4.667A4.668 4.668 0 0 0 37.333 0H4.667A4.668 4.668 0 0 0 0 4.667v32.666A4.668 4.668 0 0 0 4.667 42zm4.666-23.333h9.334V9.333h4.666v9.334h9.334v4.666h-9.334v9.334h-4.666v-9.334H9.333v-4.666z" />
-              </svg>
-            </button>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Observações:</legend>
-            <textarea
-              name="description"
-              onChange={handleChange}
-              defaultValue={description}
-              placeholder="Alguma dúvida? Recado?"
-            />
-        </fieldset>
-
-        <footer className={callback ? "footerWithCallback" : "footerWithoutCallback"}>
-          {callback && Object.keys(errors).length === 0 && (<p>Formulário enviado com sucesso</p>)}
-          <button disabled={enableSendButton()}>Enviar</button>
-        </footer>
-      </div>
+      <Footer
+        callback={callback}
+        errors={errors}
+        enableSendButton={enableSendButton()}
+      />
     </form>
   );
 }
+
+
+Form.propTypes = {
+  callback: PropTypes.bool,
+  errors: PropTypes.shape({}),
+  handleSubmit: PropTypes.func,
+  handleChange: PropTypes.func,
+  setFieldValue:PropTypes.func,
+  values: PropTypes.shape({
+    stickers:  PropTypes.shape({
+      react:PropTypes.bool,
+      vue:PropTypes.bool,
+      angular:PropTypes.bool,
+    }),
+    description: PropTypes.string,
+    count: PropTypes.number,
+  })
+};
+
+Form.defaultProps = {
+  callback: false,
+  errors: {},
+  handleSubmit: () => {},
+  handleChange: () => {},
+  setFieldValue:() => {},
+  values:{
+    stickers:  {
+      react:false,
+      vue:false,
+      angular:false,
+    },
+    description: '',
+    count: 0,
+  }
+};
+
 
 export default withFormik(formik)(Form);
