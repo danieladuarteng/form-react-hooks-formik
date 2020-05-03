@@ -113,7 +113,7 @@ form textarea {
 }
 
 header {
-  background: url("images/header.png");
+  background: url('../images/header.png');
   background-size: cover;
   height: 187px;
   padding: 23px 36px;
@@ -131,19 +131,19 @@ header h1 {
   line-height: 38px;
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
 
-input[type="checkbox"]:invalid + label::before {
+input[type='checkbox']:invalid + label::before {
   background: #F59393;
 }
 
-input[type="checkbox"] + label::before {
+input[type='checkbox'] + label::before {
   position: absolute;
-  content: "";
+  content: '';
   width: 24px;
   height: 24px;
   left: 0;
@@ -153,8 +153,8 @@ input[type="checkbox"] + label::before {
   vertical-align: bottom;
 }
 
-input[type="checkbox"]:checked + label::after {
-  content: "";
+input[type='checkbox']:checked + label::after {
+  content: '';
   position: absolute;
   left: 9px;
   bottom: 8px;
