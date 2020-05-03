@@ -2,6 +2,8 @@
 
 ![](form-react-hooks-formik.gif)
 
+[Access the website](https://danieladuarteng.github.io/my-reads/)
+
 Form building in React using hooks and formik for validate fields
 
 ## Required
