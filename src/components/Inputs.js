@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Inputs(props){
+function Inputs(props) {
+
+  const checkErrors = Object.keys(props.errors).length !== 0;
+
   return (
     <>
       <fieldset>
@@ -15,7 +18,7 @@ function Inputs(props){
             aria-describedby='Option react'
             onChange={props.handleChange}
             value={props.react}
-            required={props.enableStickerOptions}
+            required={checkErrors && props.enableStickerOptions}
           />
           <label id='label-react'  htmlFor='react'>
             React
@@ -30,7 +33,7 @@ function Inputs(props){
               aria-describedby='Option vue'
               onChange={props.handleChange}
               value={props.vue}
-              required={props.enableStickerOptions}
+              required={checkErrors && props.enableStickerOptions}
             />
             <label id='label-vue' htmlFor='vue'>
               Vue
@@ -46,7 +49,7 @@ function Inputs(props){
               aria-describedby='Option angular'
               onChange={props.handleChange}
               value={props.angular}
-              required={props.enableStickerOptions}
+              required={checkErrors && props.enableStickerOptions}
             />
             <label id='label-angular ' htmlFor='angular'>
               Angular
@@ -70,7 +73,14 @@ function Inputs(props){
               </svg>
             </button>
 
-            <output className={props.count === 0 ? 'countInvalid': undefined} name='count'>{props.count}</output>
+            <output
+              className={
+                checkErrors && props.count === 0 ? 'countInvalid': undefined
+              }
+              name='count'
+            >
+              {props.count}
+            </output>
 
             <button
               onClick={e => {
@@ -110,6 +120,7 @@ Inputs.propTypes = {
   enableStickersButton: PropTypes.bool.isRequired,
   setCount: PropTypes.func.isRequired,
   setFieldValue: PropTypes.func.isRequired,
+  errors: PropTypes.shape({}).isRequired,
 }
 
 export default Inputs;

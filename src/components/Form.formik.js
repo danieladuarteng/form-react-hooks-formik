@@ -57,7 +57,6 @@ export const formik = {
   },
   enableReinitialize: true,
   mapPropsToValues: props => {
-    console.log("props formik", props);
     if (!props.initialData) return initialData;
     return mapDataToValues(props.initialData);
   },

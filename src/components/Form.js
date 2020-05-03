@@ -61,6 +61,7 @@ function Form(props) {
       />
 
       <Inputs
+        errors={errors}
         count={count}
         react={react}
         vue={vue}
